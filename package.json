@@ -1,0 +1,31 @@
+{
+  "name": "mon-cache",
+  "version": "0.0.1",
+  "author": "Justin Park",
+  "description": "Mon-cache is mongoose cache for redis, memcached, or lru-cache",
+  "homepage": "https://github.com/devAsterisk/mon-cache.git",
+  "license": "MIT",
+  "keywords": [
+    "mongoose",
+    "cache",
+    "lru-cache",
+    "memcached",
+    "redis"
+  ],
+  "main": "./lib/mon-cache.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devAsterisk/mon-cache.git"
+  },
+  "devDependencies": {
+  },
+  "dependencies":{
+    "lru-cache":"*",
+    "redis":"*",
+    "memcached":"*"
+  },
+  "scripts": {
+    "fixjsstyle": "fixjsstyle -e node_modules -r . --strict --max_line_length 200",
+    "lint": "gjslint -e node_modules -r . --strict --max_line_length 200"
+  }
+}
