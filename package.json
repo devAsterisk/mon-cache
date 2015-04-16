@@ -20,9 +20,7 @@
   "devDependencies": {
   },
   "dependencies":{
-    "lru-cache":"*",
-    "redis":"*",
-    "memcached":"*"
+    "cache-client": "*"
   },
   "scripts": {
     "fixjsstyle": "fixjsstyle -e node_modules -r . --strict --max_line_length 200",
