@@ -29,5 +29,6 @@
   "scripts": {
     "fixjsstyle": "fixjsstyle -e node_modules -r . --strict --max_line_length 200",
     "lint": "gjslint -e node_modules -r . --strict --max_line_length 200",
+    "test": "mocha ./test/"
   }
 }
