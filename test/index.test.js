@@ -27,8 +27,10 @@ describe('Mon-Cache', function() {
   });
 
   after(function(done) {
-    mongoose.disconnect();
-    done();
+    SongModel.remove({}, function(err) {
+      mongoose.disconnect();
+      done(err);
+    });
   });
 
   it('should export a function', function() {
