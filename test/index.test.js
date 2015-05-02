@@ -80,12 +80,92 @@ describe('Mon-Cache', function() {
     });
   });
 
+  it('should cache if cache(true) is called', function(done) {
+    SongModel.find({}).cache(true).exec(function(err) {
+      if (err) {
+        return done(err);
+      }
+      SongModel.find({}).cache(true).exec(function(err, songs) {
+        if (err) {
+          return done(err);
+        } else {
+          expect(songs[0].fromCache).to.exist;
+          done();
+        }
+      });
+    });
+  });
+
   it('should cache if cache(ttl) is called', function(done) {
     SongModel.find({}).cache(1).exec(function(err) {
       if (err) {
         return done(err);
       }
+      SongModel.find({}).cache(1).exec(function(err, songs) {
+        if (err) {
+          return done(err);
+        } else {
+          expect(songs[0].fromCache).to.exist;
+          done();
+        }
+      });
+    });
+  });
+
+  it('should cache if cache(key) is called', function(done) {
+    SongModel.find({}).cache('key').exec(function(err) {
+      if (err) {
+        return done(err);
+      }
       SongModel.find({}).cache('key').exec(function(err, songs) {
+        if (err) {
+          return done(err);
+        } else {
+          expect(songs[0].fromCache).to.exist;
+          done();
+        }
+      });
+    });
+  });
+
+  it('should cache if cache(true, ttl) is called', function(done) {
+    SongModel.find({}).cache(true, 1).exec(function(err) {
+      if (err) {
+        return done(err);
+      }
+      SongModel.find({}).cache(true, 1).exec(function(err, songs) {
+        if (err) {
+          return done(err);
+        } else {
+          expect(songs[0].fromCache).to.exist;
+          done();
+        }
+      });
+    });
+  });
+
+  it('should cache if cache(ttl, key) is called', function(done) {
+    SongModel.find({}).cache(1, 'key').exec(function(err) {
+      if (err) {
+        return done(err);
+      }
+      SongModel.find({}).cache(1, 'key').exec(function(err, songs) {
+        if (err) {
+          return done(err);
+        } else {
+          expect(songs[0].fromCache).to.exist;
+          done();
+        }
+      });
+    });
+  });
+
+  it('should cache if cache(true, ttl, key) is called', function(done) {
+    SongModel.find({}).cache(true, 1, 'key').exec(function(err) {
+      if (err) {
+        return done(err);
+      }
+      SongModel.find({}).cache(true, 1, 'key').exec(function(err, songs) {
         if (err) {
           return done(err);
         } else {
@@ -118,6 +198,22 @@ describe('Mon-Cache', function() {
         return done(err);
       }
       SongModel.find({}).cache(false, 1).exec(function(err, songs) {
+        if (err) {
+          return done(err);
+        } else {
+          expect(songs[0].fromCache).to.not.exist;
+          done();
+        }
+      });
+    });
+  });
+
+  it('should not cache if cache(false, ttl, key) is called', function(done) {
+    SongModel.find({}).cache(false, 1, 'key').exec(function(err) {
+      if (err) {
+        return done(err);
+      }
+      SongModel.find({}).cache(false, 1, 'key').exec(function(err, songs) {
         if (err) {
           return done(err);
         } else {
