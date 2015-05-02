@@ -19,6 +19,13 @@ describe('Mon-Cache', function() {
     SongModel.create(songs, done);
   });
 
+  afterEach(function(done) {
+    // wait for cache expire
+    setTimeout(function () {
+      done();
+    }, 1000);
+  });
+
   after(function(done) {
     mongoose.disconnect();
     done();
