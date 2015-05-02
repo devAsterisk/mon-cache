@@ -81,11 +81,11 @@ describe('Mon-Cache', function() {
   });
 
   it('should cache if cache(ttl) is called', function(done) {
-    SongModel.find({}).cache(5).exec(function(err) {
+    SongModel.find({}).cache(1).exec(function(err) {
       if (err) {
         return done(err);
       }
-      SongModel.find({}).cache(5).exec(function(err, songs) {
+      SongModel.find({}).cache('key').exec(function(err, songs) {
         if (err) {
           return done(err);
         } else {
@@ -113,11 +113,11 @@ describe('Mon-Cache', function() {
   });
 
   it('should not cache if cache(false, ttl) is called', function(done) {
-    SongModel.find({}).cache(false, 5).exec(function(err) {
+    SongModel.find({}).cache(false, 1).exec(function(err) {
       if (err) {
         return done(err);
       }
-      SongModel.find({}).cache(false, 5).exec(function(err, songs) {
+      SongModel.find({}).cache(false, 1).exec(function(err, songs) {
         if (err) {
           return done(err);
         } else {
