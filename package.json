@@ -1,6 +1,6 @@
 {
   "name": "mon-cache",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Justin Park",
   "description": "Mon-cache is mongoose cache for redis, memcached, or lru-cache",
   "homepage": "https://github.com/devAsterisk/mon-cache.git",
