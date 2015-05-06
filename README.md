@@ -57,10 +57,21 @@ MyModel.find({ ... })
 or
 
 ```javascript
-query.cache(true)      // can explicit enable (or disable) caching
-query.cache(10)        // enable caching with 10 sec ttl
-query.cache(true, 10)  // enable caching with 10 sec ttl
+query.cache(true)             // can explicit enable (or disable) caching
+query.cache(10)               // enable caching with 10 sec ttl
+query.cache('thisKey')        // enable caching with default ttl and explicit key
+query.cache(true, 10)         // enable caching with 10 sec ttl
+query.cache(true, 10, 'key')  // enable caching with 10 sec ttl and explicit key
 ```
+
+## Changlog
+
+- ** v0.0.2 :  **  
+  support explicit key
+
+- ** v0.0.1 : **  
+ release mon-cache
+
 
 ##Contact
 
